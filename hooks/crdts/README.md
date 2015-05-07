@@ -1,6 +1,6 @@
 # Postcommit Hook to Create a CRDT
 
-### Compile `postcommit_crdts_snippet.erl`
+#### Compile `postcommit_crdts_snippet.erl`
 
 Produces `postcommit_crdts_snippet.beam`
 
@@ -8,13 +8,13 @@ Produces `postcommit_crdts_snippet.beam`
 erlc postcommit_crdts_snippet.erl
 ```
 
-### Copy the beam file to `$path_to/lib/basho-patches/`
+#### Copy the beam file to `$path_to/lib/basho-patches/`
 
 ```
 cp postcommit_crdts_snippet.beam $path_to/lib/basho-patches/
 ```
 
-### Create bucket-types with the map DataType and postcommit hook specified
+#### Create bucket-types with the map DataType and postcommit hook specified
 
 The `hooks` type will execute our postcommit hook on every insert.
 The `maps` type will be the target for our programatically generated map objects.
@@ -27,7 +27,7 @@ riak-admin bucket-type create maps '{"props":{"datatype":"map"}}'
 riak-admin bucket-type activate maps
 ```
 
-### Submit a json object with the following format:
+#### Submit a json object with the following format:
 
 ```
 curl -v -XPUT http://localhost:8098/types/hooks/buckets/myhookbucket/keys/test \
@@ -41,7 +41,7 @@ curl -v -XPUT http://localhost:8098/types/hooks/buckets/myhookbucket/keys/test \
 }'
 ```
 
-Verify the object was created with a curl command like so:
+#### Verify the object was created with a curl command like so:
 
 ```
 curl -v http://localhost:8098/types/maps/buckets/mymapbucket/datatypes/drew
